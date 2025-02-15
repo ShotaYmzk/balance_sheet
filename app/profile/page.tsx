@@ -1,10 +1,19 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import styles from "./ProfilePage.module.css";
 
+// User 型の定義
+type User = {
+  id: string;
+  email: string;
+  name: string;
+  avatar_url: string | null;
+};
+
 export default function ProfilePage() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null); // User 型に修正
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [profileImage, setProfileImage] = useState<File | null>(null);
@@ -36,7 +45,7 @@ export default function ProfilePage() {
     let avatar_url = user?.avatar_url;
 
     if (profileImage) {
-      const filePath = `avatars/${user.id}/${profileImage.name}`;
+      const filePath = `avatars/${user?.id}/${profileImage.name}`;
       const { data, error: uploadError } = await supabase.storage
         .from("avatars")
         .upload(filePath, profileImage);
@@ -53,7 +62,7 @@ export default function ProfilePage() {
     const { error } = await supabase
       .from("users")
       .update({ name: username, avatar_url })
-      .eq("id", user.id);
+      .eq("id", user?.id);
 
     if (error) {
       alert("更新エラー: " + error.message);
@@ -74,6 +83,7 @@ export default function ProfilePage() {
           <div className={styles.profileInfo}>
             <div className={styles.profileImage}>
               {user?.avatar_url ? (
+                // Next.jsのImageコンポーネントを使用
                 <img
                   src={`https://your-supabase-url/storage/v1/object/public/avatars/${user.avatar_url}`}
                   alt="Profile"

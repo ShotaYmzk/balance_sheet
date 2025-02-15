@@ -13,7 +13,7 @@ export default function AddDebt() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const { data, error } = await supabase.from("users").select("id, email");
+      const { data } = await supabase.from("users").select("id, email");
         if (data) {
           setUsers(data);
         } else {

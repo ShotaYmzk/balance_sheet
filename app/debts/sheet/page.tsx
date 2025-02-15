@@ -3,9 +3,25 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
+// Debt 型の定義
+type Debt = {
+  id: string;
+  borrower_id: string;
+  lender_id: string;
+  amount: number;
+  status: string;
+  paid_at?: string; // 返済日付がある場合
+};
+
+// User 型の定義
+type User = {
+  id: string;
+  name: string;
+};
+
 export default function DebtsPage() {
-  const [debts, setDebts] = useState<any[]>([]);
-  const [users, setUsers] = useState<{ id: string; name: string }[]>([]);
+  const [debts, setDebts] = useState<Debt[]>([]); // Debt 型を使用
+  const [users, setUsers] = useState<User[]>([]); // User 型を使用
 
   useEffect(() => {
     const fetchDebts = async () => {
@@ -13,14 +29,14 @@ export default function DebtsPage() {
       if (error) {
         alert("借金の取得エラー: " + error.message);
       } else {
-        setDebts(debtsData);
+        setDebts(debtsData as Debt[]); // 型アサーションを使って型を指定
       }
 
       const { data: usersData, error: usersError } = await supabase.from("users").select("id, name");
       if (usersError) {
         alert("ユーザーの取得エラー: " + usersError.message);
       } else {
-        setUsers(usersData);
+        setUsers(usersData as User[]); // 型アサーションを使って型を指定
       }
     };
     fetchDebts();

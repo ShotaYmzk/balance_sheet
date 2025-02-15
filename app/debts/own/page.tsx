@@ -2,9 +2,17 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 
+type Debt = {
+  id: string;
+  lender_id: string;
+  borrower_id: string;
+  amount: number;
+  status: string;
+};
+
 export default function UserDebts() {
-  const [debts, setDebts] = useState<any[]>([]);
-  const [user, setUser] = useState<any>(null);
+  const [debts, setDebts] = useState<Debt[]>([]);
+  const [user, setUser] = useState<any>(null); // 型をUserに変更するため、型定義が必要
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -25,7 +33,7 @@ export default function UserDebts() {
         if (error) {
           alert("借金情報の取得に失敗しました");
         } else {
-          setDebts(data);
+          setDebts(data as Debt[]); // 型アサーションを使ってデータの型を指定
         }
       };
       fetchDebts();
