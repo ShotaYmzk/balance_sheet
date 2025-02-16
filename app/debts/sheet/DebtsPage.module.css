@@ -13,7 +13,7 @@
   }
   
   .title {
-    color: var(--text-color);  /* ここを修正 */
+    color: var(--text-color) !important;  /* ここを修正 */
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
