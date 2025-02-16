@@ -1,0 +1,80 @@
+/* ボディ全体のレイアウト */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    padding: 20px;
+  }
+  
+  /* タイトルのスタイル */
+  .title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* 入力フォームのカード */
+  .card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* フォーム入力フィールド */
+  .inputField, .selectField, .textareaField {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .inputField:focus, .selectField:focus, .textareaField:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  /* ボタンスタイル */
+  .button {
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  /* レスポンシブデザイン */
+  @media (max-width: 600px) {
+    .title {
+      font-size: 2rem;
+    }
+  
+    .card {
+      width: 90%;
+    }
+  }

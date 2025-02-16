@@ -24,7 +24,18 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+background-color: var(--bg-color);
+color: var(--text-color);
+}
+
+.container {
+background: var(--card-bg);
+}
+
+button {
+background-color: var(--button-color);
+}
+
+button:hover {
+background-color: var(--button-hover);
 }

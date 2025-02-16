@@ -1,0 +1,102 @@
+/* グループ精算一覧のスタイル */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f7f6;
+  padding: 20px;
+}
+
+/* タイトル */
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 一覧リスト */
+.list {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* カードのスタイル */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* 立て替えた人 */
+.payer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 合計金額 */
+.totalAmount {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* 参加者リスト */
+.participants {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.participant {
+  display: flex;
+  justify-content: space-between; /* 左右に余白を分ける */
+  align-items: center; /* 縦方向に中央寄せ */
+}
+
+
+.card.paid {
+  background-color: #d3ffd3; /* 支払い済みの背景色 */
+  border-left: 5px solid green; /* 支払い済みの左側のボーダー */
+}
+
+/* GroupDebtList.module.css */
+
+.participant {
+  display: flex;
+  justify-content: space-between; /* 左右に余白を分ける */
+  align-items: center; /* 縦方向に中央寄せ */
+}
+
+.markAsPaidBtn {
+  margin-left: auto; /* ボタンを右に寄せる */
+  background-color: #4caf50; /* 支払い済みボタンの色を設定 */
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.markAsPaidBtn:hover {
+  background-color: #45a049; /* ホバー時の色を設定 */
+}
+
+.paidBadge {
+  color: green;
+  font-weight: bold;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
