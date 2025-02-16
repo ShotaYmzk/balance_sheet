@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import styles from "./ProfilePage.module.css";
+import Image from "next/image"; // 追加
 
 // User 型の定義
 type User = {
@@ -87,11 +88,15 @@ export default function ProfilePage() {
             <div className={styles.profileImage}>
               {user?.avatar_url ? (
                 // Next.jsのImageコンポーネントを使用
-                <img
+                <Image
                   src={`https://your-supabase-url/storage/v1/object/public/avatars/${user.avatar_url}`}
                   alt="Profile"
                   className={styles.avatar}
+                  width={150} // 適当なサイズ指定
+                  height={150}
+                  priority // 高速読み込みを優先
                 />
+                
               ) : (
                 <div className={styles.defaultAvatar}>👤</div>
               )}

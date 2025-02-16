@@ -14,11 +14,13 @@ export default function AddDebt() {
   useEffect(() => {
     const fetchUsers = async () => {
       const { data, error } = await supabase.from("users").select("id, email");
-        if (data) {
-          setUsers(data);
-        } else {
-          setUsers([]);
-        }
+    
+      if (error) {
+        console.error("ユーザーの取得に失敗しました:", error.message);
+        setUsers([]); // エラー時は空のリストをセット
+      } else {
+        setUsers(data);
+      }
     };
 
     fetchUsers();
