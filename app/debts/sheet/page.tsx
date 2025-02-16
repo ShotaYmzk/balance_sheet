@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import styles from "./DebtsPage.module.css";
 
+
 // Debt 型の定義に description を追加
 type Debt = {
   id: string;

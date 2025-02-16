@@ -2,15 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-color: #ffffff;
+  --text-color: #000;
+  --card-bg: #f9f9f9;
+  --card-text: #000;
+  --button-bg: #007bff;
+  --button-text: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-color: #1e1e1e;
+    --text-color: #fff;
+    --card-bg: #2a2a2a;
+    --card-text: #fff;
+    --button-bg: #0056b3;
+    --button-text: #fff;
   }
 }
 
@@ -19,5 +28,3 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-
