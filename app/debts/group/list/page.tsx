@@ -100,21 +100,21 @@ export default function GroupDebtList() {
               )}
               <h4>参加者:</h4>
               <ul className={styles.participants}>
-                {debt.participants.map((participant, index) => (
-                  <li key={participant.id} className={styles.participant}>
+                {debt.participants.map((participant) => (
+                    <li key={participant.id} className={styles.participant}>
                     <span>{participant.borrower_name}</span>: ¥{participant.amount}
                     {!participant.is_paid && (
-                      <button
+                        <button
                         className={styles.markAsPaidBtn}
                         onClick={() => handleMarkParticipantAsPaid(debt.id, participant.id)}
-                      >
+                        >
                         支払い済みにする
-                      </button>
+                        </button>
                     )}
                     {participant.is_paid && <span className={styles.paidBadge}>✅ 支払い済み</span>}
-                  </li>
+                    </li>
                 ))}
-              </ul>
+                </ul>
             </div>
           ))
         )}
