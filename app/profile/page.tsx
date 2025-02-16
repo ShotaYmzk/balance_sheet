@@ -21,21 +21,24 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setEmail(user.email || "");
-        const { data, error } = await supabase
-          .from("users")
-          .select("*")
-          .eq("id", user.id)
-          .single();
-        if (data) {
-          setUser(data);
-          setUsername(data.name);
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          setEmail(user.email || "");
+          const { data, error } = await supabase
+            .from("users")
+            .select("*")
+            .eq("id", user.id)
+            .single();
+      
+          if (error) {
+            console.error("ユーザーデータ取得エラー:", error.message);
+          } else if (data) {
+            setUser(data);
+            setUsername(data.name);
+          }
         }
-      }
-      setLoading(false);
-    };
+        setLoading(false);
+      };
 
     fetchUserData();
   }, []);

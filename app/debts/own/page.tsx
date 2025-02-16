@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 
+// Debt 型の定義
 type Debt = {
   id: string;
   lender_id: string;
@@ -10,14 +11,24 @@ type Debt = {
   status: string;
 };
 
+// User 型の定義 (必要に応じて適切に拡張してください)
+type User = {
+  id: string;
+  email: string | undefined;
+  // 他に必要なプロパティを追加
+};
+
 export default function UserDebts() {
   const [debts, setDebts] = useState<Debt[]>([]);
-  const [user, setUser] = useState<any>(null); // 型をUserに変更するため、型定義が必要
+  const [user, setUser] = useState<User | null>(null); // 型をUserに変更
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
+      setUser({
+        id: user?.id || "",
+        email: user?.email || "",
+      }); // userの型はUser型であるべき
     };
     fetchUser();
   }, []);
