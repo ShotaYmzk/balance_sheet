@@ -1,5 +1,25 @@
-/* 全体レイアウト */
-.container {
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000;  /* ライトモードの文字色を黒に */
+    --card-bg: #f9f9f9;
+    --card-text: #000;
+    --button-bg: #007bff;
+    --button-text: #fff;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #1e1e1e;
+      --text-color: #fff;  /* ダークモードの文字色を白に */
+      --card-bg: #2a2a2a;
+      --card-text: #fff;
+      --button-bg: #0056b3;
+      --button-text: #fff;
+    }
+  }
+  
+  /* 全体レイアウト */
+  .container {
     max-width: 700px;
     margin: 40px auto;
     padding: 20px;
@@ -7,30 +27,24 @@
     backdrop-filter: blur(10px);
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    color: #fff;
+    color: var(--text-color);  /* ここを修正 */
     text-align: center;
     font-family: "Poppins", sans-serif;
   }
   
   .title {
-    color: rgb(5, 5, 5);
+    color: var(--text-color);  /* ここを修正 */
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
   }
   
-  /* 借金リスト */
-  .debtList {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
   /* 借金カード */
   .debtCard {
+    background-color: var(--card-bg);
+    color: var(--card-text);
     padding: 20px;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease-in-out;
@@ -40,20 +54,11 @@
     transform: translateY(-3px);
   }
   
-  /* ステータス別のデザイン */
-  .pending {
-    border-left: 6px solid #ffcc00;
-  }
-  
-  .paid {
-    border-left: 6px solid #28a745;
-  }
-  
   /* 金額 */
   .amount {
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-color) !important; /* ここを修正 */
   }
   
   /* 借りた人・貸した人 */
@@ -77,6 +82,7 @@
     font-size: 14px;
     font-weight: bold;
     opacity: 0.8;
+    color: var(--text-color); /* ここを修正 */
   }
   
   /* ボタン */
@@ -85,8 +91,8 @@
     padding: 10px 16px;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(135deg, #4d79ff, #1e3c72);
-    color: white;
+    background: var(--button-bg);
+    color: var(--button-text);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -94,7 +100,7 @@
   }
   
   .payButton:hover {
-    background: linear-gradient(135deg, #1e3c72, #4d79ff);
+    background: #004494;
     transform: scale(1.05);
   }
   
@@ -102,11 +108,13 @@
   .noDebt {
     font-size: 18px;
     opacity: 0.7;
+    color: var(--text-color); /* ここを修正 */
   }
-
+  
+  /* 借金の詳細 */
   .description {
     font-size: 14px;
-    color: #666;
+    color: var(--text-color); /* ここを修正 */
     margin-top: 5px;
     font-style: italic;
   }
