@@ -27,6 +27,7 @@
   }
   
   .input {
+    color: black !important; /* テキストを黒に */
     padding: 10px;
     font-size: 1rem;
     width: 100%;

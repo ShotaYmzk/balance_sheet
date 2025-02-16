@@ -1,0 +1,112 @@
+/* 全体レイアウト */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .title {
+    color: rgb(5, 5, 5);
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* 借金リスト */
+  .debtList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* 借金カード */
+  .debtCard {
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .debtCard:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* ステータス別のデザイン */
+  .pending {
+    border-left: 6px solid #ffcc00;
+  }
+  
+  .paid {
+    border-left: 6px solid #28a745;
+  }
+  
+  /* 金額 */
+  .amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* 借りた人・貸した人 */
+  .details {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .borrower {
+    font-weight: bold;
+    color: #ff4d4d;
+  }
+  
+  .lender {
+    font-weight: bold;
+    color: #4d79ff;
+  }
+  
+  /* ステータス表示 */
+  .status {
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.8;
+  }
+  
+  /* ボタン */
+  .payButton {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4d79ff, #1e3c72);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .payButton:hover {
+    background: linear-gradient(135deg, #1e3c72, #4d79ff);
+    transform: scale(1.05);
+  }
+  
+  /* 借金なし */
+  .noDebt {
+    font-size: 18px;
+    opacity: 0.7;
+  }
+
+  .description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+  }
